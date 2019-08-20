@@ -1,0 +1,51 @@
+﻿set identity_insert [Event] on 
+insert Event(id, Name,RegistrationDeadlineDate,EventDate,EventStartTime,EventEndTime,TimeSlotLength) values(2, 'Speed Dating 1','9/1/2019','9/15/2019','5:00','7:30',30)
+set identity_insert [Event] on 
+GO
+insert EventTable(EventId, Name) Values(2,'Table 1')
+insert EventTable(EventId, Name) Values(2,'Table 2')
+
+insert Corp(Name) Values('Corporate 1')
+insert Corp(Name) Values('Corporate 2')
+insert Corp(Name) Values('Corporate 3')
+insert Corp(Name) Values('Corporate 4')
+
+insert Investor(FirstName, LastName, Company) Values('John','Smith','Investor A')
+insert Investor(FirstName,LastName, Company) Values('Jane','Doe','Investor B')
+insert Investor(FirstName,LastName, Company) Values('Joe','Brown','Investor C')
+insert Investor(FirstName,LastName, Company) Values('Sally', 'Reynolds', 'Investor D')
+
+
+
+
+insert EventCorp(EventId,CorpId) values(2,1)
+insert EventCorp(EventId,CorpId) values(2,2)
+insert EventCorp(EventId,CorpId) values(2,3)
+insert EventCorp(EventId,CorpId) values(2,4)
+
+insert EventInvestor(EventId,InvestorId) values(2,1)
+insert EventInvestor(EventId,InvestorId) values(2,2)
+insert EventInvestor(EventId,InvestorId) values(2,3)
+insert EventInvestor(EventId,InvestorId) values(2,4)
+
+
+insert EventCorpPref(EventCorpId,EventInvestorId,PrefOrder) values(1,3,1)
+insert EventCorpPref(EventCorpId,EventInvestorId,PrefOrder) values(2,3,1)
+insert EventCorpPref(EventCorpId,EventInvestorId,PrefOrder) values(3,2,1)
+insert EventCorpPref(EventCorpId,EventInvestorId,PrefOrder) values(4,1,1)
+
+
+insert EventInvestorPref(EventInvestorId, EventCorpId, PrefOrder) values(1,4,1)
+insert EventInvestorPref(EventInvestorId, EventCorpId, PrefOrder) values(2,1,1)
+insert EventInvestorPref(EventInvestorId, EventCorpId, PrefOrder) values(3,1,1)
+insert EventInvestorPref(EventInvestorId, EventCorpId, PrefOrder) values(4,3,1)
+
+
+select * from [Event]
+select * from EventTable
+select * from Corp
+select * from Investor
+select * from EventCorp
+select * from EventInvestor
+select * from EventCorpPref
+select * from EventInvestorPref

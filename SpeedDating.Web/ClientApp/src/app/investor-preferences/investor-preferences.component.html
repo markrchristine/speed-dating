@@ -1,0 +1,16 @@
+<h1>Select Preferences</h1>
+<div style="width:31rem;">
+  <mat-form-field style="width:31rem;"  appearance="outline">
+    <mat-label>Companies</mat-label>
+    <mat-select [formControl]="preferences" multiple>
+      <mat-select-trigger>      
+        <span>{{preferences.value}}</span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let company of companyList" [value]="company">{{company}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div style="display: flex; justify-content: flex-end">
+    <button mat-raised-button color="accent" (click)="finish()">Finish</button>
+  </div>
+</div>
